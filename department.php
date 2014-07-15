@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Description of department
  *
@@ -16,36 +17,25 @@ class Department {
         $this->student_list = array();
     }
 
-    public function add_student($a_student) 
-    {
-        if(count($this->student_list)<1)
-        {
-            $this->student_list [] = $a_student;
-        }
-        else 
+    public function add_student($a_student) {
+        if (count($this->student_list) <= 10) 
         {
             foreach ($this->student_list as $student) 
             {
-            if ($student->get_reg_no() != $a_student->get_reg_no()) 
-            {
-                if (count($this->student_list) < 10) 
+                if ($student->get_reg_no() == $a_student->get_reg_no()) 
                 {
-                    $this->student_list [] = $a_student;
-
-                    return 'Student Added';
+                    return 'Duplicate Student';
                 } 
-                else 
-                {
-                    return 'No vacancy';
-                }
-            } 
-            else 
-            {
-                return 'Duplicate Student';
-            }
-            }
+             }            
+            
+           $this->student_list [] = $a_student;
+
+           return 'Student Added';
         }
-        
+        else 
+        {
+            return 'No vacancy';
+        }
     }
 
     public function get_name() {

@@ -18,13 +18,15 @@ class Department {
     }
 
     public function add_student($a_student) {
-        if (count($this->student_list) <= 10) 
+        if (count($this->student_list) < 10) 
         {
             foreach ($this->student_list as $student) 
             {
                 if ($student->get_reg_no() == $a_student->get_reg_no()) 
                 {
-                    return 'Duplicate Student';
+                    $student->set_name($a_student->get_name());
+                    
+                    return 'Student Data Updated';
                 } 
              }            
             

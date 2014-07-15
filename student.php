@@ -27,6 +27,12 @@ class Student {
     public function get_reg_no() {
         return $this->reg_no;
     }
+    
+    public function set_name($name) {
+        $this->name = $name;
+    }
+
+
 
     
     
